@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scoresheet</title>
+    <style>
+
+        table, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #table-container {
+            width: 100%;
+            /* padding: 20px;
+            box-sizing:border-box; */
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            height: 50px;
+            vertical-align: bottom;
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .grey-cell {
+            background-color: rgb(182, 182, 182);
+        }
+
+        .alphabet-cell {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #title {
+            padding-top: 50px;
+            padding-left: 17%;
+            padding-right: 17%;
+            font-weight: bold;
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="title">Scoresheet</div>
+<div id="table-container"></div>
+<script>
+    let container = document.getElementById('table-container');
+
+    outStr = '<table>';
+
+    let numRows = 6;
+    let count = 1;
+    for (let i=0; i<6; i++){
+        outStr += '<tr>';
+        for (let j=0; j<23; j++){
+            outStr += '<td>' + count + '</td>';
+            count++;
+        }
+        outStr += '</tr>';
+    }
+
+    // add grey boxes
+    outStr += '<tr>';
+    for (let i=0; i<23; i++){
+        outStr += '<td class="grey-cell"></td>';
+    }
+    outStr += '</tr>';
+
+    // add the alphabets
+    let alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    outStr += '<tr>';
+    for (let i=0; i<23; i++){
+        outStr += '<td class="alphabet-cell">' + alphabets[i] + '</td>';
+    }
+    outStr += '</tr>';
+
+
+    outStr += '</table>';
+
+    container.innerHTML = outStr;
+</script>
+</body>
+</html>
